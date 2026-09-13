@@ -1,0 +1,244 @@
+[
+  {
+    "ContainingType": "LicenciaBackend.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LicenciaBackend.Controllers.AuthController\u002BLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "ActualizarIp",
+    "RelativePath": "api/Licencia/actualizar-ip",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "LicenciaBackend.Models.Dtos.ActualizarIpDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "GetByClave",
+    "RelativePath": "api/Licencia/clave/{clave}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clave",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LicenciaBackend.Models.Dtos.LicenciaInfoMonitorDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "GetByClaveYDispositivo",
+    "RelativePath": "api/Licencia/clave/{clave}/dispositivo/{dispositivoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clave",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dispositivoId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LicenciaBackend.Models.LicenciaInfo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "DesactivarLicencia",
+    "RelativePath": "api/Licencia/desactivar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dispositivoId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "X-Licencia-Key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "Emitir",
+    "RelativePath": "api/Licencia/emitir",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "LicenciaBackend.Models.LicenciaFirmada",
+        "IsRequired": true
+      },
+      {
+        "Name": "X-Licencia-Key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "VerificarLicencia",
+    "RelativePath": "api/Licencia/estado",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "claveLicencia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dispositivoId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "ObtenerInfoLicencia",
+    "RelativePath": "api/Licencia/info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "X-Monitor-Key",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "X-Licencia-Clave",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "ObtenerLicenciaPorId",
+    "RelativePath": "api/Licencia/obtener/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "X-Licencia-Key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "EliminarPorId",
+    "RelativePath": "api/Licencia/por-id/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "VerificarLicencia",
+    "RelativePath": "api/Licencia/verificar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "LicenciaBackend.Models.Dtos.LicenciaVerificacionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LicenciaBackend.Controllers.LicenciaController",
+    "Method": "VerificarLicenciaPorId",
+    "RelativePath": "api/Licencia/verificar-id",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "LicenciaBackend.Models.Dtos.LicenciaVerificacionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

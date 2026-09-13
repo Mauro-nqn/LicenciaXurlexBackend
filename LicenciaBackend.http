@@ -1,0 +1,6 @@
+@LicenciaBackend_HostAddress = http://localhost:5065
+
+GET {{LicenciaBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

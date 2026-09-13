@@ -1,0 +1,589 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "LicenciaBackend",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/estado": {
+      "get": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "claveLicencia",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dispositivoId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/emitir": {
+      "post": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "X-Licencia-Key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaFirmada"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaFirmada"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaFirmada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/verificar": {
+      "post": {
+        "tags": [
+          "Licencia"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaVerificacionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaVerificacionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaVerificacionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/verificar-id": {
+      "post": {
+        "tags": [
+          "Licencia"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaVerificacionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaVerificacionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenciaVerificacionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/info": {
+      "get": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "X-Monitor-Key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Licencia-Clave",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/desactivar": {
+      "put": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "dispositivoId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Licencia-Key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/por-id/{id}": {
+      "delete": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/actualizar-ip": {
+      "post": {
+        "tags": [
+          "Licencia"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarIpDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarIpDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarIpDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Licencia/clave/{clave}": {
+      "get": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "clave",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenciaInfoMonitorDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenciaInfoMonitorDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenciaInfoMonitorDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Licencia/clave/{clave}/dispositivo/{dispositivoId}": {
+      "get": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "clave",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dispositivoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenciaInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenciaInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenciaInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Licencia/obtener/{id}": {
+      "get": {
+        "tags": [
+          "Licencia"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Licencia-Key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActualizarIpDto": {
+        "type": "object",
+        "properties": {
+          "clave": {
+            "type": "string",
+            "nullable": true
+          },
+          "ip": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipLocal": {
+            "type": "string",
+            "nullable": true
+          },
+          "puerto": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LicenciaFirmada": {
+        "type": "object",
+        "properties": {
+          "datosBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "firmaBase64": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LicenciaInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estudioNombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "cuit": {
+            "type": "string",
+            "nullable": true
+          },
+          "clave": {
+            "type": "string",
+            "nullable": true
+          },
+          "dispositivoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "modo": {
+            "type": "string",
+            "nullable": true
+          },
+          "validoDesde": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "validoHasta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "apiUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxUsuariosLocales": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxUsuariosRemotos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "permitirRemoto": {
+            "type": "boolean"
+          },
+          "maxDispositivos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "notas": {
+            "type": "string",
+            "nullable": true
+          },
+          "activa": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LicenciaInfoMonitorDto": {
+        "type": "object",
+        "properties": {
+          "idLicencia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estudioNombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "dispositivoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "clave": {
+            "type": "string",
+            "nullable": true
+          },
+          "cuit": {
+            "type": "string",
+            "nullable": true
+          },
+          "validoHasta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "apiUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipLocal": {
+            "type": "string",
+            "nullable": true
+          },
+          "puerto": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LicenciaVerificacionDto": {
+        "type": "object",
+        "properties": {
+          "idLicencia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "claveLicencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "dispositivoId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header usando el esquema Bearer. Ejemplo: \"Bearer {token}\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    { }
+  ]
+}
