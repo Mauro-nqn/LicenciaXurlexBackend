@@ -166,16 +166,33 @@ builder.Services.AddAuthorization(options =>
 // --- Construir app
 var app = builder.Build();
 
+
+
+
 // === Detección de Azure ===
-bool isAzure = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID"));
+//bool isAzure = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID"));
 
 // === Bind de URLs solo en LOCAL ===
 // (en Azure, App Service administra el binding a 80/443)
-if (!isAzure)
-{
-    // Si querés HTTPS local, también podés usar cfg.UsaHttps y tu cert dev
-    app.Urls.Add($"http://0.0.0.0:{cfg.Puerto}");
-}
+//if (!isAzure)
+//{
+// Si querés HTTPS local, también podés usar cfg.UsaHttps y tu cert dev
+//app.Urls.Add($"http://0.0.0.0:{cfg.Puerto}");
+//}
+
+
+
+// === Puerto / binding ===
+var portEnv = Environment.GetEnvironmentVariable("PORT");
+
+var puerto = int.TryParse(portEnv, out var railwayPort)
+    ? railwayPort
+    : cfg.Puerto;
+
+app.Urls.Add($"http://0.0.0.0:{puerto}");
+
+Console.WriteLine($"LicenciaBackend escuchando en puerto: {puerto}");
+
 
 // === HTTPS redirection si el INI lo pide ===
 if (cfg.UsaHttps)
